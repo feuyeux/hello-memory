@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+*.bkp
+__pycache__
+*.trt
