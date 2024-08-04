@@ -203,7 +203,7 @@ python llamaindex_memory.py
 
 <https://docs.crewai.com/core-concepts/Memory/>
 
-Memory System Components[¶](https://docs.crewai.com/core-concepts/Memory/#memory-system-components)
+### 4.0 Memory System Components
 
 | Component             | Description                                                  |
 | :-------------------- | :----------------------------------------------------------- |
@@ -212,7 +212,7 @@ Memory System Components[¶](https://docs.crewai.com/core-concepts/Memory/#memor
 | **Entity Memory**     | Captures and organizes information about entities (people, places, concepts) encountered during tasks, facilitating deeper understanding and relationship mapping. |
 | **Contextual Memory** | Maintains the context of interactions by combining `ShortTermMemory`, `LongTermMemory`, and `EntityMemory`, aiding in the coherence and relevance of agent responses over a sequence of tasks or a conversation. |
 
-How Memory Systems Empower Agents[¶](https://docs.crewai.com/core-concepts/Memory/#how-memory-systems-empower-agents)
+#### How Memory Systems Empower Agents
 
 1. **Contextual Awareness**: With short-term and contextual memory, agents gain the ability to maintain context over a conversation or task sequence, leading to more coherent and relevant responses.
 2. **Experience Accumulation**: Long-term memory allows agents to accumulate experiences, learning from past actions to improve future decision-making and problem-solving.
