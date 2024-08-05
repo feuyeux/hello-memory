@@ -1,4 +1,3 @@
-from llama_index.core.memory import VectorMemory
 from llama_index.llms.ollama import Ollama
 from llama_index.core.tools import FunctionTool
 from llama_index.core.agent import FunctionCallingAgentWorker
@@ -53,12 +52,12 @@ agent_worker = FunctionCallingAgentWorker.from_tools(
 )
 agent_with_memory = agent_worker.as_agent(memory=composable_memory)
 
-response = agent_with_memory.chat("What is the mystery function on 5 and 6?")
-response = agent_with_memory.chat("What happens if you multiply 2 and 3?")
+agent_with_memory.chat("What is the mystery function on 5 and 6?")
+agent_with_memory.chat("What happens if you multiply 2 and 3?")
 
-response = agent_with_memory.chat(
+agent_with_memory.chat(
     "What was the output of the mystery function on 5 and 6 again? Don't recompute."
 )
-response = agent_with_memory.chat(
+agent_with_memory.chat(
     "What was the output of the multiply function on 2 and 3 again? Don't recompute."
 )

@@ -1,19 +1,8 @@
 import os
-import copy
-import re
-from typing import Dict, List, Tuple
-
 import autogen
 from autogen.agentchat.contrib.capabilities import transform_messages, transforms
 
-import os
-import copy
-
-import autogen
-from autogen.agentchat.contrib.capabilities import transform_messages, transforms
-from typing import Dict, List
-
-os.environ['AUTOGEN_USE_DOCKER']='no'
+os.environ['AUTOGEN_USE_DOCKER'] = 'no'
 llm_config = {
     "config_list": [
         {
@@ -46,7 +35,6 @@ context_handling = transform_messages.TransformMessages(
 context_handling.add_to_agent(assistant)
 
 
-# Create a very long chat history that is bound to cause a crash for gpt 3.5
 def test(assistant: autogen.ConversableAgent, user_proxy: autogen.UserProxyAgent):
     for _ in range(1000):
         # define a fake, very long messages
@@ -60,5 +48,6 @@ def test(assistant: autogen.ConversableAgent, user_proxy: autogen.UserProxyAgent
         user_proxy.initiate_chat(assistant, message="plot and save a graph of x^2 from -10 to 10", clear_history=False)
     except Exception as e:
         print(f"Encountered an error with the base assistant: \n{e}")
+
 
 test(assistant, user_proxy)

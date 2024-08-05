@@ -1,6 +1,5 @@
 from crewai import Crew, Agent, Task, Process
 from langchain_openai import ChatOpenAI
-from langchain_huggingface import HuggingFaceEmbeddings
 
 import os
 os.environ["OPENAI_API_KEY"] = "NA"
