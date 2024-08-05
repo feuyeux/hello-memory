@@ -35,7 +35,7 @@ context_handling = transform_messages.TransformMessages(
 context_handling.add_to_agent(assistant)
 
 
-def test(assistant: autogen.ConversableAgent, user_proxy: autogen.UserProxyAgent):
+def tasting(assistant: autogen.ConversableAgent, user_proxy: autogen.UserProxyAgent):
     for _ in range(1000):
         # define a fake, very long messages
         assitant_msg = {"role": "assistant", "content": "test " * 1000}
@@ -50,4 +50,4 @@ def test(assistant: autogen.ConversableAgent, user_proxy: autogen.UserProxyAgent
         print(f"Encountered an error with the base assistant: \n{e}")
 
 
-test(assistant, user_proxy)
+tasting(assistant, user_proxy)

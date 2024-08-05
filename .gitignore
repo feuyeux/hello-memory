@@ -4,3 +4,4 @@
 __pycache__
 *.trt
 *_env
+.cache
