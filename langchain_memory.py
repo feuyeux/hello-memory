@@ -5,7 +5,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, HumanMessagePromptTemplate
 from langchain_core.runnables import ConfigurableFieldSpec
-from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain_community.chat_message_histories import ChatMessageHistory, FileChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
@@ -21,17 +21,17 @@ gemma2 = ChatOllama(
 llm = llama31
 
 #
-print("==== LangChain Memory TESTING ====")
-prompt = ChatPromptTemplate.from_messages([
-    MessagesPlaceholder(variable_name='chat_history'),
-    HumanMessagePromptTemplate.from_template('{question}')
-])
-memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
-memory_chain = LLMChain(llm=llm, memory=memory, prompt=prompt)
-round1 = memory_chain.predict(question="hi im bob!")
-print("round1", round1)
-round2 = memory_chain.predict(question="whats my name?")
-print("round2", round2)
+# print("==== LangChain Memory TESTING ====")
+# prompt = ChatPromptTemplate.from_messages([
+#     MessagesPlaceholder(variable_name='chat_history'),
+#     HumanMessagePromptTemplate.from_template('{question}')
+# ])
+# memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
+# memory_chain = LLMChain(llm=llm, memory=memory, prompt=prompt)
+# round1 = memory_chain.predict(question="hi im bob!")
+# print("round1", round1)
+# round2 = memory_chain.predict(question="whats my name?")
+# print("round2", round2)
 
 #
 print("==== LangChain History TESTING ====")
@@ -54,7 +54,8 @@ store = {}
 def get_session_history(user_id: str, session_id: str) -> BaseChatMessageHistory:
     key = user_id + "-" + session_id
     if key not in store:
-        store[key] = ChatMessageHistory()
+        # store[key] = ChatMessageHistory()
+        store[key] = FileChatMessageHistory(".chat_history.json")
     return store[key]
 
 

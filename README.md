@@ -240,3 +240,16 @@ python crewai_memory.py
 ```sh
 How does bird fly?
 ```
+
+## 5 memary
+
+```sh
+pip install virtualenv 
+virtualenv mm_venv --python=3.11.9
+
+source mm_venv/bin/activate
+pip install --upgrade pip
+
+pip install memary
+pip install -r requirements.txt
+```
