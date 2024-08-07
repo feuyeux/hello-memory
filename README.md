@@ -234,7 +234,11 @@ pip install -U langchain-huggingface
 <https://www.youtube.com/watch?v=-hHplC_gcSE>
 
 ```sh
-python crewai_memory.py
+export CREWAI_STORAGE_DIR=/Users/hanl5/test
+export TOKENIZERS_PARALLELISM=true
+# https://serper.dev/api-key
+export SERPER_API_KEY=
+python crewai_memory_.py
 ```
 
 ```sh

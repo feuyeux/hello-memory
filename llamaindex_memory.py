@@ -1,3 +1,4 @@
+from llama_index.core.storage.chat_store import SimpleChatStore
 from llama_index.llms.ollama import Ollama
 from llama_index.core.tools import FunctionTool
 from llama_index.core.agent import FunctionCallingAgentWorker
@@ -26,10 +27,10 @@ vector_memory = VectorMemory.from_defaults(
     retriever_kwargs={"similarity_top_k": 2},
 )
 
-chat_memory_buffer = ChatMemoryBuffer.from_defaults()
-
+chat_store = SimpleChatStore.from_persist_path("chat_store.json")
+# chat_store = RedisChatStore(redis_url="redis://localhost:6379", ttl=300)
 composable_memory = SimpleComposableMemory.from_defaults(
-    primary_memory=chat_memory_buffer,
+    primary_memory=ChatMemoryBuffer.from_defaults(chat_store=chat_store),
     secondary_memory_sources=[vector_memory],
 )
 
@@ -41,7 +42,7 @@ def multiply(a: int, b: int) -> int:
 
 def mystery(a: int, b: int) -> int:
     """Mystery function on two numbers"""
-    return a**2 - b**2
+    return a ** 2 - b ** 2
 
 
 multiply_tool = FunctionTool.from_defaults(fn=multiply)
@@ -52,12 +53,9 @@ agent_worker = FunctionCallingAgentWorker.from_tools(
 )
 agent_with_memory = agent_worker.as_agent(memory=composable_memory)
 
-agent_with_memory.chat("What is the mystery function on 5 and 6?")
+# agent_with_memory.chat("What is the mystery function on 5 and 6?")
 agent_with_memory.chat("What happens if you multiply 2 and 3?")
 
-agent_with_memory.chat(
-    "What was the output of the mystery function on 5 and 6 again? Don't recompute."
-)
-agent_with_memory.chat(
-    "What was the output of the multiply function on 2 and 3 again? Don't recompute."
-)
+# agent_with_memory.chat("What was the output of the mystery function on 5 and 6 again? Don't recompute.")
+agent_with_memory.chat("What was the output of the multiply function on 2 and 3 again? Don't recompute.")
+chat_store.persist("chat_store.json")

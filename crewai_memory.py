@@ -12,7 +12,6 @@ father_agent = Agent(
     role='Father',
     goal='You are the father of a kid. The kid may ask you any question.'
          'Your goal is to provide a satisfactory answer to the kid.',
-    verbose=True,
     memory=True,
     backstory=(
         "You are a 40 year old male. You live in the city of San Jose with your wife and kid who is 10 years old."
@@ -36,9 +35,7 @@ father_task = Task(
 parent_crew = Crew(
     agents=[father_agent],
     tasks=[father_task],
-    process=Process.sequential,
     memory=True,
-    verbose=True,
     embedder={
         "provider": "huggingface",
         "config": {
