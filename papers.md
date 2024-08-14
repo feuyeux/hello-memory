@@ -1,3 +1,5 @@
+# Papers
+
 [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/pdf/2308.11432)
 
 ## 记忆的来源
@@ -13,6 +15,8 @@
 记忆可以是**文本形式(Textual Form)**的。[MemGPT](https://memgpt.ai/)的短期记忆和召回记忆；至于完整的交互记忆，通常用于ReAct(reasoning and acting)，在Qwen-Agent中，通过chatml特有的多轮的格式<im_start> <im_end>进行分割历史的会话，最后一轮才加上ReAct的prompt。
 
 [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/pdf/2310.08560)
+
+MemGPT: Unlimited Memory without Token Constraints for Generative AI Platforms, like GPT-4, LaMDA, PaLM, LLAMA, CLAUDE, and others <https://medium.com/@lawrenceteixeira/memgpt-unlimited-memory-without-token-constraints-for-generative-ai-platforms-like-gpt-4-lamda-0c755ece7d05>
 
 记忆也可以是**参数形式(Parametric Form)**的，这种方式更高级一些。它不是直接存储文字，而是把记忆转换成模型参数，就像是把知识压缩成精华。这样做的好处是不会受到文本长度的限制，而且存储效率更高。但是，这种形式的记忆在写入时可能需要更多的计算，而且解释起来也不如文本形式直观。
 
@@ -56,6 +60,8 @@ MemoChat研究中，这个模型的智能体在聊天时会做总结，它会提
 [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/pdf/2304.03442)
 
 GITM [Ghost in the Minecraft: Generally Capable Agents for Open-World Environments via Large Language Models with Text-based Knowledge and Memory](https://arxiv.org/pdf/2305.17144)
+
+Voyager - An LLM-based curriculum generator, actor and critic, with skill reuse in Minecraft! <https://www.youtube.com/watch?v=Y-pgbjTlYgk>
 
 ### **记忆读取**
 
