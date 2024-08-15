@@ -8,9 +8,18 @@
 - 跨任务信息（ Cross-trial Information ）利用跨任务的信息来优化和改进当前任务的执行策略
 - 外部知识（External Knowledge）
 
-[ExpeL: LLM Agents Are Experiential Learners](https://arxiv.org/pdf/2308.10144)
+### ExpeL
 
-## 记忆的**形式**
+- [ExpeL: LLM Agents Are Experiential Learners](https://arxiv.org/pdf/2308.10144)
+- <https://github.com/LeapLabTHU/ExpeL>
+
+Experiential Learning (ExpeL) agent
+
+`https://github.com/LeapLabTHU/ExpeL/blob/main/memory/episode.py`
+
+**Memory Mechanisms** Agents with persistent long-term memory have demonstrated exciting results in multi-agent settings (Park et al. 2023; Maas et al. 2023; Qian et al. 2023). These works usually have multiple instantiations of generative agents that interact with each other and simulate human societies or fictional settings. In generative agents (Park et al. 2023), agents have a memory mechanism where they can retrieve information based on recency, relevance, and importance, much like how humans sometimes refer to and associate with different memories during their day. These lines of work usually are open-ended, while ExpeL agents are task-solving. Like generative agents, our work also uses memory: successful in-context examples and extracted insights as condensed memory which were both gathered from the agent’s own experience.
+
+## 记忆的形式
 
 记忆可以是**文本形式(Textual Form)**的。[MemGPT](https://memgpt.ai/)的短期记忆和召回记忆；至于完整的交互记忆，通常用于ReAct(reasoning and acting)，在Qwen-Agent中，通过chatml特有的多轮的格式<im_start> <im_end>进行分割历史的会话，最后一轮才加上ReAct的prompt。
 
@@ -32,7 +41,7 @@ MemGPT: Unlimited Memory without Token Constraints for Generative AI Platforms, 
 - 记忆管理
 - 记忆读取
 
-### **记忆写入**
+### 记忆写入
 
 这就像是LLM的短期记忆。当LLM接收到新的信息时，比如我们在聊天中提到的内容，它就会把这些信息存入它的“大脑”。这个过程就像是我们在记事本上写东西，但LLM用的是一种特殊的编码方式，比如转换成一系列的数字参数。这样，当信息需要被用到时，它们就能够更快速地被调取出来。
 
@@ -42,7 +51,7 @@ MemoChat研究中，这个模型的智能体在聊天时会做总结，它会提
 
 [MemoChat: Tuning LLMs to Use Memos for Consistent Long-Range Open-Domain Conversation](https://arxiv.org/pdf/2308.08239)
 
-### **记忆管理**
+### 记忆管理
 
 这个环节就像是LLM的长期记忆。LLM会在这里处理和整理之前写入的信息，把它们变得更有用。比如，如果LLM接收到了很多信息，它可能会把这些信息进行分类，或者找出最重要的部分，然后把不那么重要的信息“忘掉”，以保持大脑的清晰和高效。
 
@@ -63,7 +72,7 @@ GITM [Ghost in the Minecraft: Generally Capable Agents for Open-World Environmen
 
 Voyager - An LLM-based curriculum generator, actor and critic, with skill reuse in Minecraft! <https://www.youtube.com/watch?v=Y-pgbjTlYgk>
 
-### **记忆读取**
+### 记忆读取
 
 这是LLM使用记忆中的信息来帮助解决问题的时刻。就像我们在准备考试时，会从笔记中找到重要的知识点一样。LLM会根据当前的情况，从记忆中找到最相关的信息，然后用这些信息来帮助我们做出决策或回答问题。
 
@@ -94,3 +103,5 @@ MPC [Prompted LLMs as Chatbot Modules for Long Open-domain Conversation](https:/
 - **结果正确性**，衡量智能体是否能够基于记忆模块成功回答预定义的问题。例如，如果用户询问是 “小明今天去了哪里？”，智能体需要从记忆中选择正确的答案，如 "A: 东湖" 或 "B: 西湖"，并与正确答案进行匹配比较。通过准确率就可以计算。
 - **参考准确性**，与结果正确性不同，参考准确性更关注智能体在做出最终决定时所依赖的中间信息。将检索到的记忆与预先准备好的标准答案进行比较，通常使用F1分数来评估检索过程的准确性。
 - **时间和硬件成本**，关注记忆模块操作的总时间成本，包括记忆管理和推理的时间。记忆管理指的是记忆写入和管理所需的时间，而推理时间则是记忆读取的时间延迟。并且，计算开销可以通过评估过程中使用的峰值GPU内存分配来衡量。
+
+- <https://github.com/AIoT-MLSys-Lab/Efficient-LLMs-Survey>
