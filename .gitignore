@@ -3,5 +3,5 @@
 *.bkp
 __pycache__
 *.trt
-*_env
+*_*env
 .cache

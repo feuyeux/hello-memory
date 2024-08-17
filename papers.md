@@ -10,20 +10,22 @@
 
 ### ExpeL
 
-- [ExpeL: LLM Agents Are Experiential Learners](https://arxiv.org/pdf/2308.10144)
+- [1 ExpeL: LLM Agents Are Experiential Learners](https://arxiv.org/pdf/2308.10144)
 - <https://github.com/LeapLabTHU/ExpeL>
 
 Experiential Learning (ExpeL) agent
 
-`https://github.com/LeapLabTHU/ExpeL/blob/main/memory/episode.py`
+Trajectory in `https://github.com/LeapLabTHU/ExpeL/blob/main/memory/episode.py`
 
 **Memory Mechanisms** Agents with persistent long-term memory have demonstrated exciting results in multi-agent settings (Park et al. 2023; Maas et al. 2023; Qian et al. 2023). These works usually have multiple instantiations of generative agents that interact with each other and simulate human societies or fictional settings. In generative agents (Park et al. 2023), agents have a memory mechanism where they can retrieve information based on recency, relevance, and importance, much like how humans sometimes refer to and associate with different memories during their day. These lines of work usually are open-ended, while ExpeL agents are task-solving. Like generative agents, our work also uses memory: successful in-context examples and extracted insights as condensed memory which were both gathered from the agent’s own experience.
+
+![expel](https://github.com/LeapLabTHU/ExpeL/raw/main/assets/expel.png)
 
 ## 记忆的形式
 
 记忆可以是**文本形式(Textual Form)**的。[MemGPT](https://memgpt.ai/)的短期记忆和召回记忆；至于完整的交互记忆，通常用于ReAct(reasoning and acting)，在Qwen-Agent中，通过chatml特有的多轮的格式<im_start> <im_end>进行分割历史的会话，最后一轮才加上ReAct的prompt。
 
-[MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/pdf/2310.08560)
+[2 MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/pdf/2310.08560)
 
 MemGPT: Unlimited Memory without Token Constraints for Generative AI Platforms, like GPT-4, LaMDA, PaLM, LLAMA, CLAUDE, and others <https://medium.com/@lawrenceteixeira/memgpt-unlimited-memory-without-token-constraints-for-generative-ai-platforms-like-gpt-4-lamda-0c755ece7d05>
 
@@ -31,7 +33,7 @@ MemGPT: Unlimited Memory without Token Constraints for Generative AI Platforms, 
 
 参数形式的记忆则涉及到一些更复杂的技术，比如fine-tuning和editing。微调可以帮助模型快速学习特定领域的知识，而知识编辑则可以精确地更新或删除某些记忆，避免影响其他无关的知识。经典的**Character-LLM**: A Trainable Agent for Role-Playing，就是使用的微调的方式。
 
-[Character-LLM: A Trainable Agent for Role-Playing](https://arxiv.org/pdf/2310.10158)
+[3 Character-LLM: A Trainable Agent for Role-Playing](https://arxiv.org/pdf/2310.10158)
 
 ## 记忆的操作
 
@@ -49,7 +51,7 @@ MemGPT: Unlimited Memory without Token Constraints for Generative AI Platforms, 
 
 MemoChat研究中，这个模型的智能体在聊天时会做总结，它会提取每个对话片段的主要讨论话题，然后像给书本加索引一样，把这些话题作为记忆片段的关键词存起来，这样以后查找记忆就方便多了。
 
-[MemoChat: Tuning LLMs to Use Memos for Consistent Long-Range Open-Domain Conversation](https://arxiv.org/pdf/2308.08239)
+[4 MemoChat: Tuning LLMs to Use Memos for Consistent Long-Range Open-Domain Conversation](https://arxiv.org/pdf/2308.08239)
 
 ### 记忆管理
 
@@ -62,13 +64,13 @@ MemoChat研究中，这个模型的智能体在聊天时会做总结，它会提
 - Generative Agents就更高级了，智能体能进行反思，获取更高层次的信息。它们能从积累的事件中产生抽象的想法。当有足够的事件需要处理时，这个反思过程就会被激活。
 - GITM，这个智能体为了建立各种情况下的共同参考计划，会进一步在记忆模块中总结多个计划中的关键行动。这就像是我们根据不同情境制定计划，并从中提取出最重要的行动步骤。见下图。
 
-[MemoryBank: Enhancing Large Language Models with Long-Term Memory](https://arxiv.org/pdf/2305.10250)
+[5 MemoryBank: Enhancing Large Language Models with Long-Term Memory](https://arxiv.org/pdf/2305.10250)
 
-[VOYAGER: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/pdf/2305.16291)
+[6 VOYAGER: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/pdf/2305.16291)
 
-[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/pdf/2304.03442)
+[7 Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/pdf/2304.03442)
 
-GITM [Ghost in the Minecraft: Generally Capable Agents for Open-World Environments via Large Language Models with Text-based Knowledge and Memory](https://arxiv.org/pdf/2305.17144)
+GITM [8 Ghost in the Minecraft: Generally Capable Agents for Open-World Environments via Large Language Models with Text-based Knowledge and Memory](https://arxiv.org/pdf/2305.17144)
 
 Voyager - An LLM-based curriculum generator, actor and critic, with skill reuse in Minecraft! <https://www.youtube.com/watch?v=Y-pgbjTlYgk>
 
@@ -82,7 +84,7 @@ Voyager - An LLM-based curriculum generator, actor and critic, with skill reuse 
 - MPC(Modular Prompted Chatbot)中，智能体能从记忆池里检索出相关的记忆。这个方法还提出了一种提供思维链示例的方式，帮助智能体忽略某些不重要的记忆。这样智能体就能集中注意力在那些对当前任务更有帮助的记忆上。
 - ExpeL这个模型就更厉害了，它使用Faiss向量库作为记忆池，然后找出与当前任务相似度最高的前K个成功轨迹。这就像是智能体有一个超级记忆库，能快速匹配并找出最相似的成功经验来指导当前的任务。
 
-MPC [Prompted LLMs as Chatbot Modules for Long Open-domain Conversation](https://arxiv.org/pdf/2305.04533)
+MPC [9 Prompted LLMs as Chatbot Modules for Long Open-domain Conversation](https://arxiv.org/pdf/2305.04533)
 
 ## 记忆模块的评估
 
