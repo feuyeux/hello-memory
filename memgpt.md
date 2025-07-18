@@ -116,7 +116,7 @@ Number of requested results 100 is greater than number of elements in index 1, u
 ## Work with AutoGen
 
 ```sh
-pip install pyautogen
+pip install ag2
 ```
 
 <https://lmstudio.ai/>

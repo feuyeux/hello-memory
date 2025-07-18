@@ -161,7 +161,7 @@ python3 -m venv ag_env
 source ag_env/bin/activate
 
 pip install --upgrade pip
-pip install pyautogen "litellm[proxy]"
+pip install ag2 "litellm[proxy]"
 ```
 
 ### 2.2 run litellm (llama3.1 on ollama)
